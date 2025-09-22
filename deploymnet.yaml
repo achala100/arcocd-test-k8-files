@@ -25,12 +25,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: myapp-service
 spec:
-  type: ClusterIP
+  type: ClusterIP  # change to LoadBalancer if you want AWS ELB
   ports:
-  - port: 80
-    targetPort: 80
-    protocol: TCP
+    - port: 80
+      targetPort: 80
+      protocol: TCP
   selector:
-    app: myapp
+    app: myapp   # ✅ matches Deployment label
